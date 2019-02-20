@@ -4,9 +4,9 @@ RUN apt-get update && \
     apt-get install -y python-virtualenv make && \
 	rm -rf /var/lib/apt/lists
 
-RUN useradd builder
+RUN useradd -u 1001 builder
 
 RUN mkdir /build && \
-    chown -R builder:0 /build
+    chown -R 1001:1001 /build
 
-USER builder
+USER 1001
